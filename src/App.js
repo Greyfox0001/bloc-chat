@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import * as firebase from 'firebase';
+import RoomList from './components/RoomList';
 
 //<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
 //<script>
@@ -21,20 +21,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+        <header>
+        <h1 id="Bloc Chat">Bloc Chat</h1>
         </header>
+        <main>
+        <div>
+        {
+          this.props.RoomList
+        }
+        </div>
+        </main>
       </div>
     );
   }
