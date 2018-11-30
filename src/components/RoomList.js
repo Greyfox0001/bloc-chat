@@ -7,7 +7,7 @@ class RoomList extends Component {
     this.roomsRef = this.props.firebase.database().ref('rooms');
 
     this.state = {
-      rooms: ["room1", "room2", "room3"]
+      rooms: [{name: "room1"}, {name: "room2"}, {name: "room3"}]
     };
   }
 
