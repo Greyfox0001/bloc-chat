@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class RoomList extends Component {
   constructor(props) {
     super(props);
@@ -7,7 +8,7 @@ class RoomList extends Component {
     this.roomsRef = this.props.firebase.database().ref('rooms');
 
     this.state = {
-      rooms: [{name: "room1"}, {name: "room2"}, {name: "room3"}]
+      rooms: []
     };
   }
 
@@ -26,9 +27,9 @@ render() {
     <section className="roomlist">
     <div className="chatrooms">
     {
-      this.state.rooms.map((room) =>
+      this.state.rooms.map((rooms) =>
         <div>
-          {room.name};
+          {rooms.name};
         </div>
     )}
     </div>

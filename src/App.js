@@ -3,9 +3,6 @@ import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
 
-//<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
-//<script>
-  // Initialize Firebase
   var config = {
     apiKey: "AIzaSyA-SsRFiqvnU262WiINuPeapDVRdc6GqdY",
     authDomain: "bloc-chat-19c70.firebaseapp.com",
@@ -15,7 +12,6 @@ import RoomList from './components/RoomList';
     messagingSenderId: "501787106527"
   };
   firebase.initializeApp(config);
-//</script>
 
 class App extends Component {
   render() {
@@ -26,7 +22,7 @@ class App extends Component {
         </header>
         <main>
         <div>
-        <RoomList rooms={this.state.RoomList} />
+        <RoomList firebase={firebase} />
         </div>
         </main>
       </div>
