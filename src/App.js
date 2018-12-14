@@ -20,6 +20,7 @@ class App extends Component {
         <header>
         <h1 id="Bloc Chat">Bloc Chat</h1>
         </header>
+        <button>New Room</button>
         <main>
         <div>
         <RoomList firebase={firebase} />
