@@ -9,6 +9,7 @@ class RoomList extends Component {
 
     this.state = {
       rooms: [],
+      newRoomName: ''
     };
   }
 
@@ -18,8 +19,12 @@ class RoomList extends Component {
 
   newRoomSubmit(e) {
     e.preventDefault();
+    if(!this.state.newRoomName) {return}
     const newRoom = {name: this.state.newRoomName};
-    this.roomsRef.push({rooms: [...this.state.rooms, newRoom], newRoomName: ''});
+    this.roomsRef.push({rooms: [this.state.rooms, newRoom], newRoomName: ''});
+    /*this.roomsRef.push({
+      rooms: newRoomName
+    });*/
   }
 
 componentDidMount() {
