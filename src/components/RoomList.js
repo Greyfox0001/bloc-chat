@@ -19,12 +19,7 @@ class RoomList extends Component {
 
   newRoomSubmit(e) {
     e.preventDefault();
-    if (!this.state.newRoomName) {return}
-    const newRoom = {name: this.state.newRoomName};
-    this.roomsRef.push({rooms: [this.state.rooms, newRoom], newRoomName: ''});
-    /*this.roomsRef.push({
-      rooms: newRoomName
-    });*/
+    this.roomsRef.push({name: [this.state.newRoomName]});
   }
 
 componentDidMount() {
@@ -45,9 +40,9 @@ render() {
       </form>
     <div className="chatrooms">
     {
-      this.state.rooms.map((rooms) =>
+      this.state.rooms.map((room) =>
         <div>
-          {rooms.name};
+          {room.name};
         </div>
     )}
     </div>
