@@ -14,13 +14,16 @@ class RoomList extends Component {
   }
 
   handleNewRoom(e) {
-    this.setState({newRoomName: e.target.value})
+    this.setState({newRoomName: e.target.value});
   }
 
   newRoomSubmit(e) {
+    //stop form from submitting
     e.preventDefault();
     this.roomsRef.push({name: [this.state.newRoomName]});
-  }
+    //refresh the form
+    this.setState({newRoomName: ''});
+  };
 
 componentDidMount() {
   this.roomsRef.on('child_added', snapshot => {
@@ -42,7 +45,7 @@ render() {
     {
       this.state.rooms.map((room) =>
         <div>
-          {room.name};
+          {room.name}
         </div>
     )}
     </div>
