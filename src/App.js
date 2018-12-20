@@ -29,7 +29,7 @@ class App extends Component {
 
   setActiveMessage(messages, roomId) {
     const activeMessage = messages.roomId;
-    this.setState({activeMessageList: activeMessage})
+    this.setState({activeMessageList: activeMessage});
   }
 
 
@@ -44,7 +44,7 @@ class App extends Component {
         <RoomList activeRoom={this.state.activeRoom} setActiveRoom={(room)=>this.setActiveRoom(room)} firebase={firebase} />
         </div>
         <div>
-        <MessageList activeRoom={this.props.activeRoom} setActiveRoom={(room)=>this.props.setActiveRoom(room)} firebase={firebase} />
+        <MessageList activeRoom={this.props.activeRoom} setActiveRoom={(message)=>this.setActiveMessage(message)} firebase={firebase} />
         </div>
         </main>
       </div>

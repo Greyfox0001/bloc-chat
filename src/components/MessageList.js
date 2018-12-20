@@ -25,10 +25,10 @@ componentDidMount() {
     return(
       <section className="messageField">
       {
-        this.state.messages.map((message) =>
+        this.state.messages.map((message, index) =>
         <div onClick={()=>this.props.setActiveMessage(message.key)}>
-          <ol>
-            {message}
+          <ol key={message.index}>
+            {message.content}
           </ol>
         </div>
       )}

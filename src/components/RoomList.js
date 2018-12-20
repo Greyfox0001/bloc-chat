@@ -44,8 +44,8 @@ render() {
       </form>
     <div className="chatrooms">
     {
-      this.state.rooms.map((room) =>
-        <div onClick={()=>this.props.setActiveRoom(room.key)} className={(this.props.activeRoom === room.key) ? 'active' : ''}>
+      this.state.rooms.map((room, index) =>
+        <div key={index} onClick={()=>this.props.setActiveRoom(room.key)} className={(this.props.activeRoom === room.key) ? 'active' : ''}>
           {room.name}
         </div>
     )}
