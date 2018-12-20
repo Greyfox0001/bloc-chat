@@ -25,6 +25,7 @@ class RoomList extends Component {
     this.setState({newRoomName: ''});
   };
 
+
 componentDidMount() {
   this.roomsRef.on('child_added', snapshot => {
     //console.log(snapshot);
@@ -44,7 +45,7 @@ render() {
     <div className="chatrooms">
     {
       this.state.rooms.map((room) =>
-        <div>
+        <div onClick={()=>this.props.setActiveRoom(room.key)} className={(this.props.activeRoom === room.key) ? 'active' : ''}>
           {room.name}
         </div>
     )}
