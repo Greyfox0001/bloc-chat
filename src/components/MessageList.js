@@ -26,7 +26,7 @@ componentDidMount() {
       <section className="messageField">
       {
         this.state.Messages.filter(
-          (message)=> message.roomId !== this.props.activeRoom).map((message, index) =>
+          (message)=> message.roomId == this.props.activeRoom).map((message, index) =>
         <div key={index}>
           <ol>
             {message.content}
