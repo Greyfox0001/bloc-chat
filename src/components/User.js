@@ -18,12 +18,12 @@ componentDidMount() {
 
   render() {
     return(
-      <div onClick={()=>this.props.setUser(username)}>
+      <div onClick={()=>this.props.setUser(this.username)}>
         {
           this.props.user.username
         }
         <input type='button' value='click'
-         onClick={this.props.firebase.auth().signInWithPopup(provider)}>
+         onClick={this.props.firebase.auth().signInWithPopup(this.provider)}>
           Sign In
         </input>
         <br />
