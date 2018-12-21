@@ -4,20 +4,20 @@ class MessageList extends Component {
   constructor(props) {
     super(props)
 
-    this.MessagesRef = this.props.firebase.database().ref('Messages');
+    this.messagesRef = this.props.firebase.database().ref('messages');
 
     this.state = {
-      Messages: []
+      messages: []
     };
   }
 
 
 componentDidMount() {
-  this.MessagesRef.on('child_added', snapshot => {
+  this.messagesRef.on('child_added', snapshot => {
     console.log(snapshot);
     const message = snapshot.val();
     message.key = snapshot.key;
-    this.setState({Messages: this.state.Messages.concat(message)})
+    this.setState({messages: this.state.messages.concat(message)})
   });
 }
 
@@ -25,7 +25,7 @@ componentDidMount() {
     return(
       <section className="messageField">
       {
-        this.state.Messages.filter(
+        this.state.messages.filter(
           (message)=> message.roomId == this.props.activeRoom).map((message, index) =>
         <div key={index}>
           <ol>
