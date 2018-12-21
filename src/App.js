@@ -19,7 +19,6 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: null,
-      activeMessageList: null
     }
   }
 
@@ -27,10 +26,12 @@ class App extends Component {
     this.setState({activeRoom: roomId});
   }
 
-  setActiveMessage(messages, roomId) {
+  /*setActiveMessage(messages, roomId) {
     const activeMessage = messages.roomId;
     this.setState({activeMessageList: activeMessage});
-  }
+  }*/
+
+  //setActiveRoom={(message)=>this.setActiveMessage(message)}
 
 
   render() {
@@ -44,7 +45,7 @@ class App extends Component {
         <RoomList activeRoom={this.state.activeRoom} setActiveRoom={(room)=>this.setActiveRoom(room)} firebase={firebase} />
         </div>
         <div>
-        <MessageList activeRoom={this.props.activeRoom} setActiveRoom={(message)=>this.setActiveMessage(message)} firebase={firebase} />
+        <MessageList activeRoom={this.props.activeRoom} firebase={firebase} />
         </div>
         </main>
       </div>
