@@ -6,8 +6,6 @@ class User extends Component {
 
   this.usernameRef = this.props.firebase.database().ref('username');
 
-  const provider = new firebase.auth.GoogleAuthProvider();
-
 }
 
 componentDidMount() {
@@ -16,20 +14,15 @@ componentDidMount() {
   });
 }
 
+
   render() {
+    const provider = new this.props.firebase.auth.GoogleAuthProvider();
     return(
-      <div onClick={()=>this.props.setUser(this.username)}>
-        {
-          this.props.user.username
-        }
-        <input type='button' value='click'
-         onClick={this.props.firebase.auth().signInWithPopup(provider)}>
-          Sign In
-        </input>
+      <div>
+        <input type='button' value='Sign In'
+         onClick={this.props.firebase.auth().signInWithPopup(provider)}  />
         <br />
-        <input type='button' value='click' onClick={this.props.firebase.auth().signOut()}>
-          Sign Out
-        </input>
+        <input type='button' value='Sign Out' onClick={this.props.firebase.auth().signOut()}  />
       </div>
     )
   }

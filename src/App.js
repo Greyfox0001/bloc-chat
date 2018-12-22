@@ -40,7 +40,7 @@ class App extends Component {
         <header>
         <h1 id="Bloc Chat">Bloc Chat</h1>
         </header>
-        <User user={this.state.user} setUser={(user)=>this.setUser(user)} firebase={firebase} />
+        <User user={this.state.user} setUser={(username)=>this.setUser(username)} firebase={firebase} />
         <main>
         <div>
         <RoomList activeRoom={this.state.activeRoom} setActiveRoom={(room)=>this.setActiveRoom(room)} firebase={firebase} />
