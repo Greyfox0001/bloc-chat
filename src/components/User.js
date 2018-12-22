@@ -6,7 +6,7 @@ class User extends Component {
 
   this.usernameRef = this.props.firebase.database().ref('username');
 
-  const provider = new this.props.firebase.auth.GoogleAuthProvider();
+  const provider = new firebase.auth.GoogleAuthProvider();
 
 }
 
@@ -23,7 +23,7 @@ componentDidMount() {
           this.props.user.username
         }
         <input type='button' value='click'
-         onClick={this.props.firebase.auth().signInWithPopup(this.provider)}>
+         onClick={this.props.firebase.auth().signInWithPopup(provider)}>
           Sign In
         </input>
         <br />
