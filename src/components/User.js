@@ -26,9 +26,13 @@ signOut() {
   render() {
     return(
       <div>
+        {
+          this.props.user.displayName
+        }
+        <br />
         <input type='button' value='Sign In' onClick={()=>this.signIn(this)} />
         <br />
-        <input type='button' value='Sign Out' onClick={()=>this.signIn(this)} />
+        <input type='button' value='Sign Out' onClick={()=>this.signOut(this)} />
       </div>
     )
   }
