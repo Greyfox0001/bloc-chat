@@ -14,15 +14,21 @@ componentDidMount() {
   });
 }
 
+signIn() {
+  const provider = new this.props.firebase.auth.GoogleAuthProvider();
+  this.props.firebase.auth().signInWithPopup(provider);
+}
+
+signOut() {
+  this.props.firebase.auth().signOut();
+}
 
   render() {
-    const provider = new this.props.firebase.auth.GoogleAuthProvider();
     return(
       <div>
-        <input type='button' value='Sign In'
-         onClick={this.props.firebase.auth().signInWithPopup(provider)}  />
+        <input type='button' value='Sign In' onClick={()=>this.signIn(this)} />
         <br />
-        <input type='button' value='Sign Out' onClick={this.props.firebase.auth().signOut()}  />
+        <input type='button' value='Sign Out' onClick={()=>this.signIn(this)} />
       </div>
     )
   }
