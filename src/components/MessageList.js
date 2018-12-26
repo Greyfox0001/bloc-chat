@@ -7,14 +7,24 @@ class MessageList extends Component {
     this.messagesRef = this.props.firebase.database().ref('messages');
 
     this.state = {
-      messages: []
+      messages: [],
+      newMessage: ''
     };
   }
 
+  handleNewMessage(e) {
+    this.setState({newMessage: e.target.value});
+  }
+
+  newMessageSubmit(e) {
+    e.preventDefault();
+    this.messagesRef.push({message: [this.state.newMessage]});
+    this.setState({newMessage: ''});
+  };
 
 componentDidMount() {
   this.messagesRef.on('child_added', snapshot => {
-    console.log(snapshot);
+    //console.log(snapshot);
     const message = snapshot.val();
     message.key = snapshot.key;
     this.setState({messages: this.state.messages.concat(message)})
@@ -33,6 +43,10 @@ componentDidMount() {
           </ol>
         </div>
       )}
+      <form onSubmit={(e) => this.newMessageSubmit(e)}>
+        <input type="text" value={this.state.newMessage} onChange={(e) => this.handleNewMessage(e)} />
+        <input type="submit" />
+      </form>
       </section>
     );
   }

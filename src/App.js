@@ -37,20 +37,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-        <h1 id="Bloc Chat">Bloc Chat</h1>
-        </header>
-        <main>
-        <div>
+        <div className="w3-sidebar">
+        <h1 id="w3-Bloc-Chat">Bloc Chat</h1>
         <User user={this.state.user} setUser={(username)=>this.setUser(username)} firebase={firebase} />
-        </div>
-        <div>
         <RoomList activeRoom={this.state.activeRoom} setActiveRoom={(room)=>this.setActiveRoom(room)} firebase={firebase} />
         </div>
-        <div>
-        <MessageList activeRoom={this.state.activeRoom} firebase={firebase} />
+        <div className="messageDisplay">
+        <MessageList user={this.state.user} activeRoom={this.state.activeRoom} firebase={firebase} />
         </div>
-        </main>
       </div>
     );
   }
