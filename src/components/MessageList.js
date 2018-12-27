@@ -18,7 +18,7 @@ class MessageList extends Component {
 
   newMessageSubmit(e) {
     e.preventDefault();
-    this.messagesRef.push({message: [this.state.newMessage]});
+    this.messagesRef.push({content: this.state.newMessage, roomId: this.props.activeRoom});
     this.setState({newMessage: ''});
   };
 
