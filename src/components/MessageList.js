@@ -18,7 +18,7 @@ class MessageList extends Component {
 
   newMessageSubmit(e) {
     e.preventDefault();
-    this.messagesRef.push({content: this.state.newMessage, roomId: this.props.activeRoom});
+    this.messagesRef.push({content: this.state.newMessage, roomId: this.props.activeRoom, username: this.props.user ? this.props.user.displayName : "Guest"});
     this.setState({newMessage: ''});
   };
 
@@ -36,10 +36,10 @@ componentDidMount() {
       <section className="messageField">
       {
         this.state.messages.filter(
-          (message)=> message.roomId == this.props.activeRoom).map((message, index) =>
-        <div key={index}>
+          (message)=> message.roomId == this.props.activeRoom).map((message, username) =>
+        <div key={username}>
           <ol>
-            {message.content}
+            {message.username}: {message.content}
           </ol>
         </div>
       )}

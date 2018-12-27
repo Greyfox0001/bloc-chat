@@ -27,7 +27,7 @@ signOut() {
     return(
       <div>
         {
-          this.props.user ? this.props.user.displayName: 'Guest User'
+          this.props.user ? this.props.user.displayName: 'Guest'
         }
         <br />
         <input type='button' value='Sign In' onClick={()=>this.signIn(this)} />
